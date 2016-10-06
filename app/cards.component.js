@@ -15,7 +15,7 @@ var Cards = (function () {
     Cards = __decorate([
         core_1.Component({
             selector: 'cards',
-            template: "\n  \t\t\t\t<h1> \n  \t\t\t\tthis will be the list of cards!\n  \t\t\t\t</h1>\n  \t\t\t\t"
+            template: "\n  \t\t\t\t<h1> \n  \t\t\t\tthis will be the list of cards!\n  \t\t\t\t</h1>\n  \t\t\t\t<card> </card>\n  \t\t\t\t"
         }), 
         __metadata('design:paramtypes', [])
     ], Cards);

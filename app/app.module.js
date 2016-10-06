@@ -12,13 +12,14 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
 var cards_component_1 = require('./cards.component');
+var card_component_1 = require('./card.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.BrainFart, cards_component_1.Cards],
+            declarations: [app_component_1.BrainFart, cards_component_1.Cards, card_component_1.Card],
             bootstrap: [app_component_1.BrainFart]
         }), 
         __metadata('design:paramtypes', [])

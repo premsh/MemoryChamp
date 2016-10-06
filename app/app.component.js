@@ -15,7 +15,7 @@ var BrainFart = (function () {
     BrainFart = __decorate([
         core_1.Component({
             selector: 'brain-fart',
-            template: "\n  \t\t\t\t<h1> \n  \t\t\t\tBrain Fart Memory Game! Ready for Brain Fart!! \n  \t\t\t\t</h1>\n  \t\t\t\t<cards> </cards>\n  \t\t\t\t"
+            template: '<h1>My First Angular App</h1> <cards></cards>'
         }), 
         __metadata('design:paramtypes', [])
     ], BrainFart);

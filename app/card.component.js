@@ -9,17 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var Cards = (function () {
-    function Cards() {
+var Card = (function () {
+    function Card() {
     }
-    Cards = __decorate([
+    Card = __decorate([
         core_1.Component({
-            selector: 'cards',
-            template: "\n  \t\t\t\t<h1> \n  \t\t\t\tthis will be the list of cards!\n  \t\t\t\t</h1>\n  \t\t\t\t"
+            selector: 'card',
+            template: "\n  \t\t\t\t<h1> \n  \t\t\t\tthis is a card!\n  \t\t\t\t</h1>\n  \t\t\t\t"
         }), 
         __metadata('design:paramtypes', [])
-    ], Cards);
-    return Cards;
+    ], Card);
+    return Card;
 }());
-exports.Cards = Cards;
-//# sourceMappingURL=cards.js.map
+exports.Card = Card;
+//# sourceMappingURL=card.component.js.map

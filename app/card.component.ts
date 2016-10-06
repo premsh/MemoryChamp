@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 @Component({
-  selector: 'cards',
+  selector: 'card',
   template: `
   				<h1> 
-  				this will be the list of cards!
+  				this is a card!
   				</h1>
-  				<card> </card>
   				`
 })
-export class Cards { 
+export class Card { 
 
 
 }
