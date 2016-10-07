@@ -11,11 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var Card = (function () {
     function Card() {
+        this.isFlip = false;
     }
+    Card.prototype.flipCard = function () {
+        //alert('flip the card');
+        this.isFlip = !this.isFlip;
+    };
     Card = __decorate([
         core_1.Component({
             selector: 'card',
-            template: "\n  \t\t\t\t<h1> \n  \t\t\t\tthis is a card!\n  \t\t\t\t</h1>\n  \t\t\t\t"
+            template: "\n  \t<div class=\"flip-container\" [class.flip] = \"isFlip\"  (click)=\"flipCard();\">\n\t\t<div class=\"flipper\">\n\t\t\t<div class=\"front\">\n\t\t\t\tfront content\n\t\t\t</div>\n\t\t\t<div class=\"back\">\n\t\t\t\tback content\n\t\t\t</div>\n\t\t</div>\n\t</div>\n  \t\t\t\t"
         }), 
         __metadata('design:paramtypes', [])
     ], Card);
