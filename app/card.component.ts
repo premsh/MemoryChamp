@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'card',
   template: `
-  	<div class="flip-container" [class.flip] = "isFlip"  (click)="flipCard();">
+  	<div class="flip-container" [class.flip] = "cardModel.isFlip"  (click)="flipCard();">
 		<div class="flipper">
 			<div class="front">
 				{{ cardModel.frontContent }}
@@ -16,15 +16,13 @@ import { Component } from '@angular/core';
 })
 export class Card {
 	cardModel : CardModel;
-	isFlip :boolean = false;
 
 	constructor() {
 		this.cardModel = new CardModel();		
 	}
 
 	flipCard() : void {
-		//alert('flip the card');
-		this.isFlip = !this.isFlip;
+		this.cardModel.isFlip = !this.cardModel.isFlip;
 	}
 
 }

@@ -9,10 +9,10 @@ describe('1st tests', () => {
     var cardFactory  = new CardFactory();
 
     // act
-    var cards = cardFactory.createCards(9); 
+    var cardModels = cardFactory.createCards(9); 
 
     // assert
-    expect(cards.length).toEqual(9);
+    expect(cardModels.length).toEqual(9);
     });
 
 });

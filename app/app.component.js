@@ -11,17 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var cardFactory_1 = require('./cardFactory');
 var BrainFart = (function () {
-    /**
-     *
-     */
     function BrainFart() {
         this.cardFactory = new cardFactory_1.CardFactory();
-        this.cards = this.cardFactory.createCards(9);
+        this.cardModels = this.cardFactory.createCards(9);
     }
     BrainFart = __decorate([
         core_1.Component({
             selector: 'brain-fart',
-            template: '<h1>My First Angular App</h1> <cards [cards] = "cards"></cards>'
+            template: '<h1>My First Angular App</h1> <cards [cardmodels] = "cardModels"></cards>'
         }), 
         __metadata('design:paramtypes', [])
     ], BrainFart);

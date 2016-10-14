@@ -11,17 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var Card = (function () {
     function Card() {
-        this.isFlip = false;
         this.cardModel = new CardModel();
     }
     Card.prototype.flipCard = function () {
-        //alert('flip the card');
-        this.isFlip = !this.isFlip;
+        this.cardModel.isFlip = !this.cardModel.isFlip;
     };
     Card = __decorate([
         core_1.Component({
             selector: 'card',
-            template: "\n  \t<div class=\"flip-container\" [class.flip] = \"isFlip\"  (click)=\"flipCard();\">\n\t\t<div class=\"flipper\">\n\t\t\t<div class=\"front\">\n\t\t\t\t{{ cardModel.frontContent }}\n\t\t\t</div>\n\t\t\t<div class=\"back\">\n\t\t\t\t{{ cardModel.backContent }}\n\t\t\t</div>\n\t\t</div>\n\t</div>\n  \t\t\t\t"
+            template: "\n  \t<div class=\"flip-container\" [class.flip] = \"cardModel.isFlip\"  (click)=\"flipCard();\">\n\t\t<div class=\"flipper\">\n\t\t\t<div class=\"front\">\n\t\t\t\t{{ cardModel.frontContent }}\n\t\t\t</div>\n\t\t\t<div class=\"back\">\n\t\t\t\t{{ cardModel.backContent }}\n\t\t\t</div>\n\t\t</div>\n\t</div>\n  \t\t\t\t"
         }), 
         __metadata('design:paramtypes', [])
     ], Card);

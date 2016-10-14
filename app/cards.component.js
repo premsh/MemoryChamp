@@ -10,19 +10,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var Cards = (function () {
-    /**
-     *
-     */
     function Cards() {
     }
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
-    ], Cards.prototype, "cards", void 0);
+    ], Cards.prototype, "cardmodels", void 0);
     Cards = __decorate([
         core_1.Component({
             selector: 'cards',
-            template: "\n  \t\t\t\t<h1> \n  \t\t\t\tthis will be the list of cards!\n  \t\t\t\t</h1>\n\t\t\t\t  {{ cards.length }}\n  \t\t\t\t<card> </card>\n\t\t\t\t  \n  \t\t\t\t"
+            template: "\n  \t\t\t\t<h1> \n  \t\t\t\tthis will be the list of cards!\n  \t\t\t\t</h1>\n\t\t\t\t  {{ cardmodels.length }}\n  \t\t\t\t\t\t\t\t  \n\t\t\t\t<table>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td *ngFor=\"let cardmodel of cardmodels; trackBy : index \">\n\t\t\t\t\t\t\t<card> </card>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</table>\n  \t\t\t\t"
         }), 
         __metadata('design:paramtypes', [])
     ], Cards);

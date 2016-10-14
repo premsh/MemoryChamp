@@ -1,21 +1,18 @@
-import { Card } from './card.component';
+import { CardModel } from './card.component';
 
 export class CardFactory {
-    cards : Card[];
+    cards : CardModel[];
 
-    /**
-     *
-     */
     constructor() {
-        this.cards = new Array<Card>();
+        this.cards = new Array<CardModel>();
         
     }
 
-    createCards(numberOfCards : number) : Card[]  {
+    createCards(numberOfCards : number) : CardModel[]  {
         
         while(numberOfCards > 0)
         {
-            let card = new Card();
+            let card = new CardModel();
             this.cards.push(card);
             numberOfCards--;
         }

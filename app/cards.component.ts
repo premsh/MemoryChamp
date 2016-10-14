@@ -5,17 +5,19 @@ import { Component, Input } from '@angular/core';
   				<h1> 
   				this will be the list of cards!
   				</h1>
-				  {{ cards.length }}
-  				<card> </card>
-				  
+				  {{ cardmodels.length }}
+  								  
+				<table>
+					<tr>
+						<td *ngFor="let cardmodel of cardmodels; trackBy : index ">
+							<card> </card>
+						</td>
+					</tr>
+				</table>
   				`
 })
 export class Cards { 
-	@Input() cards;
-
-	/**
-	 *
-	 */
+	@Input() cardmodels;
 	constructor() {
 		
 	} 
