@@ -8,8 +8,8 @@ import { Component, Input } from '@angular/core';
 				  {{ cardmodels.length }}
   								  
 				<table>
-					<tr>
-						<td *ngFor="let cardmodel of cardmodels; trackBy : index ">
+					<tr *ngFor="let cardmodelItem of cardmodels; trackBy : index">
+						<td *ngFor="let cardmodel of cardmodelItem; trackBy : index">
 							<card [cardmodel] = "cardmodel"> </card>
 						</td>
 					</tr>

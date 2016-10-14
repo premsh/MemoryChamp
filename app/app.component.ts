@@ -12,7 +12,7 @@ export class BrainFart {
     
     constructor() {
         this.cardFactory = new CardFactory();
-        this.cardModels = this.cardFactory.createCards(9);       
+        this.cardModels = this.cardFactory.createCards(3, 3);       
     }
 }
 

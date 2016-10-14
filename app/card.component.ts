@@ -5,10 +5,10 @@ import { Component, Input } from '@angular/core';
   	<div class="flip-container" [class.flip] = "cardmodel.isFlip"  (click)="flipCard();">
 		<div class="flipper">
 			<div class="front" [ngStyle]="{'background': 'url(' + cardmodel.frontContent + ') 0 0  no-repeat'}">
-				{{ cardmodel.frontContent }}
+				
 			</div>
 			<div class="back" [ngStyle]="{'background': 'url(' + cardmodel.backContent + ') 0 0  no-repeat'}">
-				{{ cardmodel.backContent }}
+				
 			</div>
 		</div>
 	</div>`

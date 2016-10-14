@@ -1,20 +1,22 @@
 import { CardModel } from './card.component';
 
 export class CardFactory {
-    cards : CardModel[];
+    cards: any[];
 
     constructor() {
-        this.cards = new Array<CardModel>();
-        
+        this.cards = [];
     }
 
-    createCards(numberOfCards : number) : CardModel[]  {
-        
-        while(numberOfCards > 0)
-        {
-            let card = new CardModel();
-            this.cards.push(card);
-            numberOfCards--;
+    createCards(numberOfCards: number, numberOfRows: number): CardModel[] {
+        let originalNumberOfCards : number = numberOfCards;
+        for (var i = 0; i < numberOfRows; i++) {
+            this.cards[i] = [];
+            while (numberOfCards > 0) {
+                let card = new CardModel();
+                this.cards[i].push(card);
+                numberOfCards--;
+            }
+            numberOfCards = originalNumberOfCards; 
         }
         return this.cards;
     }
