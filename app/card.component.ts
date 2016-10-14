@@ -1,28 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 @Component({
   selector: 'card',
   template: `
-  	<div class="flip-container" [class.flip] = "cardModel.isFlip"  (click)="flipCard();">
+  	<div class="flip-container" [class.flip] = "cardmodel.isFlip"  (click)="flipCard();">
 		<div class="flipper">
 			<div class="front">
-				{{ cardModel.frontContent }}
+				{{ cardmodel.frontContent }}
 			</div>
 			<div class="back">
-				{{ cardModel.backContent }}
+				{{ cardmodel.backContent }}
 			</div>
 		</div>
 	</div>
   				`
 })
 export class Card {
-	cardModel : CardModel;
+	@Input() cardmodel;
 
-	constructor() {
-		this.cardModel = new CardModel();		
+	constructor() {		
 	}
 
 	flipCard() : void {
-		this.cardModel.isFlip = !this.cardModel.isFlip;
+		this.cardmodel.isFlip = !this.cardmodel.isFlip;
 	}
 
 }

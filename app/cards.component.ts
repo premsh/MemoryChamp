@@ -10,7 +10,7 @@ import { Component, Input } from '@angular/core';
 				<table>
 					<tr>
 						<td *ngFor="let cardmodel of cardmodels; trackBy : index ">
-							<card> </card>
+							<card [cardmodel] = "cardmodel"> </card>
 						</td>
 					</tr>
 				</table>
