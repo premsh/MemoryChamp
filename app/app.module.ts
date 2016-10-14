@@ -10,3 +10,6 @@ import { Card } from './card.component';
   bootstrap:    [ BrainFart ]
 })
 export class AppModule { }
+
+
+
