@@ -5,17 +5,22 @@ import { Component } from '@angular/core';
   	<div class="flip-container" [class.flip] = "isFlip"  (click)="flipCard();">
 		<div class="flipper">
 			<div class="front">
-				front content
+				{{ cardModel.frontContent }}
 			</div>
 			<div class="back">
-				back content
+				{{ cardModel.backContent }}
 			</div>
 		</div>
 	</div>
   				`
 })
-export class Card { 
+export class Card {
+	cardModel : CardModel;
 	isFlip :boolean = false;
+
+	constructor() {
+		this.cardModel = new CardModel();		
+	}
 
 	flipCard() : void {
 		//alert('flip the card');
@@ -24,7 +29,16 @@ export class Card {
 
 }
 
+export class CardModel {
+	frontContent : string = 'front content from card model';
+	backContent : string = 'back content from card model';
+	isFlip : boolean = false;
 
+	flipCard() : void {
+		//alert('flip the card');
+		this.isFlip = !this.isFlip;
+	}
+}
 
 
 

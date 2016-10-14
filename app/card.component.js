@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var Card = (function () {
     function Card() {
         this.isFlip = false;
+        this.cardModel = new CardModel();
     }
     Card.prototype.flipCard = function () {
         //alert('flip the card');
@@ -20,11 +21,24 @@ var Card = (function () {
     Card = __decorate([
         core_1.Component({
             selector: 'card',
-            template: "\n  \t<div class=\"flip-container\" [class.flip] = \"isFlip\"  (click)=\"flipCard();\">\n\t\t<div class=\"flipper\">\n\t\t\t<div class=\"front\">\n\t\t\t\tfront content\n\t\t\t</div>\n\t\t\t<div class=\"back\">\n\t\t\t\tback content\n\t\t\t</div>\n\t\t</div>\n\t</div>\n  \t\t\t\t"
+            template: "\n  \t<div class=\"flip-container\" [class.flip] = \"isFlip\"  (click)=\"flipCard();\">\n\t\t<div class=\"flipper\">\n\t\t\t<div class=\"front\">\n\t\t\t\t{{ cardModel.frontContent }}\n\t\t\t</div>\n\t\t\t<div class=\"back\">\n\t\t\t\t{{ cardModel.backContent }}\n\t\t\t</div>\n\t\t</div>\n\t</div>\n  \t\t\t\t"
         }), 
         __metadata('design:paramtypes', [])
     ], Card);
     return Card;
 }());
 exports.Card = Card;
+var CardModel = (function () {
+    function CardModel() {
+        this.frontContent = 'front content from card model';
+        this.backContent = 'back content from card model';
+        this.isFlip = false;
+    }
+    CardModel.prototype.flipCard = function () {
+        //alert('flip the card');
+        this.isFlip = !this.isFlip;
+    };
+    return CardModel;
+}());
+exports.CardModel = CardModel;
 //# sourceMappingURL=card.component.js.map

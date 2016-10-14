@@ -9,13 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var cardFactory_1 = require('./cardFactory');
 var BrainFart = (function () {
+    /**
+     *
+     */
     function BrainFart() {
+        this.cardFactory = new cardFactory_1.CardFactory();
+        this.cards = this.cardFactory.createCards(9);
     }
     BrainFart = __decorate([
         core_1.Component({
             selector: 'brain-fart',
-            template: '<h1>My First Angular App</h1> <cards></cards>'
+            template: '<h1>My First Angular App</h1> <cards [cards] = "cards"></cards>'
         }), 
         __metadata('design:paramtypes', [])
     ], BrainFart);
