@@ -4,15 +4,14 @@ import { Component, Input } from '@angular/core';
   template: `
   	<div class="flip-container" [class.flip] = "cardmodel.isFlip"  (click)="flipCard();">
 		<div class="flipper">
-			<div class="front">
+			<div class="front" [ngStyle]="{'background': 'url(' + cardmodel.frontContent + ') 0 0  no-repeat'}">
 				{{ cardmodel.frontContent }}
 			</div>
-			<div class="back">
+			<div class="back" [ngStyle]="{'background': 'url(' + cardmodel.backContent + ') 0 0  no-repeat'}">
 				{{ cardmodel.backContent }}
 			</div>
 		</div>
-	</div>
-  				`
+	</div>`
 })
 export class Card {
 	@Input() cardmodel;
@@ -26,12 +25,11 @@ export class Card {
 }
 
 export class CardModel {
-	frontContent : string = 'front content from card model';
-	backContent : string = 'back content from card model';
+	frontContent : string = 'app/images/minions.jpg';
+	backContent : string = 'app/images/pyramid.jpg';
 	isFlip : boolean = false;
 
 	flipCard() : void {
-		//alert('flip the card');
 		this.isFlip = !this.isFlip;
 	}
 }

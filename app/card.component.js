@@ -22,7 +22,7 @@ var Card = (function () {
     Card = __decorate([
         core_1.Component({
             selector: 'card',
-            template: "\n  \t<div class=\"flip-container\" [class.flip] = \"cardmodel.isFlip\"  (click)=\"flipCard();\">\n\t\t<div class=\"flipper\">\n\t\t\t<div class=\"front\">\n\t\t\t\t{{ cardmodel.frontContent }}\n\t\t\t</div>\n\t\t\t<div class=\"back\">\n\t\t\t\t{{ cardmodel.backContent }}\n\t\t\t</div>\n\t\t</div>\n\t</div>\n  \t\t\t\t"
+            template: "\n  \t<div class=\"flip-container\" [class.flip] = \"cardmodel.isFlip\"  (click)=\"flipCard();\">\n\t\t<div class=\"flipper\">\n\t\t\t<div class=\"front\" [ngStyle]=\"{'background': 'url(' + cardmodel.frontContent + ') 0 0  no-repeat'}\">\n\t\t\t\t{{ cardmodel.frontContent }}\n\t\t\t</div>\n\t\t\t<div class=\"back\" [ngStyle]=\"{'background': 'url(' + cardmodel.backContent + ') 0 0  no-repeat'}\">\n\t\t\t\t{{ cardmodel.backContent }}\n\t\t\t</div>\n\t\t</div>\n\t</div>"
         }), 
         __metadata('design:paramtypes', [])
     ], Card);
@@ -31,12 +31,11 @@ var Card = (function () {
 exports.Card = Card;
 var CardModel = (function () {
     function CardModel() {
-        this.frontContent = 'front content from card model';
-        this.backContent = 'back content from card model';
+        this.frontContent = 'app/images/minions.jpg';
+        this.backContent = 'app/images/pyramid.jpg';
         this.isFlip = false;
     }
     CardModel.prototype.flipCard = function () {
-        //alert('flip the card');
         this.isFlip = !this.isFlip;
     };
     return CardModel;
