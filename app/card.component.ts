@@ -23,7 +23,6 @@ export class Card {
 	flipCard() : void {
 		this.cardmodel.isFlip = !this.cardmodel.isFlip;
 	}
-
 }
 
 export class CardModel {
