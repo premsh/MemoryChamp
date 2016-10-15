@@ -13,7 +13,7 @@ var cardFactory_1 = require('./cardFactory');
 var BrainFart = (function () {
     function BrainFart() {
         this.cardFactory = new cardFactory_1.CardFactory();
-        this.cardModels = this.cardFactory.createCards(3, 3);
+        this.cardModels = this.cardFactory.createCards(3, 4);
     }
     BrainFart = __decorate([
         core_1.Component({
