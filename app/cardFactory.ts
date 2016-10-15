@@ -1,4 +1,4 @@
-import { CardModel } from './card.component';
+import { CardModel, CardContent } from './card.component';
 
 export class CardFactory {
     cards: any[];
@@ -7,12 +7,13 @@ export class CardFactory {
         this.cards = [];
     }
 
-    createCards(numberOfCards: number, numberOfRows: number): CardModel[] {
+    createCards(numberOfCards: number = 3, numberOfRows: number = 3): any[] {
         let originalNumberOfCards : number = numberOfCards;
         for (var i = 0; i < numberOfRows; i++) {
             this.cards[i] = [];
             while (numberOfCards > 0) {
-                let card = new CardModel();
+                let cardContent = new CardContent('app/images/1.jpg',1);
+                let card = new CardModel(cardContent);
                 this.cards[i].push(card);
                 numberOfCards--;
             }

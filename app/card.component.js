@@ -22,7 +22,7 @@ var Card = (function () {
     Card = __decorate([
         core_1.Component({
             selector: 'card',
-            template: "\n  \t<div class=\"flip-container\" [class.flip] = \"cardmodel.isFlip\"  (click)=\"flipCard();\">\n\t\t<div class=\"flipper\">\n\t\t\t<div class=\"front\" [ngStyle]=\"{'background': 'url(' + cardmodel.frontContent + ') 0 0  no-repeat'}\">\n\t\t\t\t\n\t\t\t</div>\n\t\t\t<div class=\"back\" [ngStyle]=\"{'background': 'url(' + cardmodel.backContent + ') 0 0  no-repeat'}\">\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t</div>"
+            template: "\n  \t<div class=\"flip-container\" [class.flip] = \"cardmodel.isFlip\"  (click)=\"flipCard();\">\n\t\t<div class=\"flipper\">\n\t\t\t<div class=\"front\" [ngStyle]=\"{'background': 'url(' + cardmodel.frontContent + ') 0 0  no-repeat'}\">\n\t\t\t\t\n\t\t\t</div>\n\t\t\t<div class=\"back\" [ngStyle]=\"{'background': 'url(' + cardmodel.cardContent.cardContent + ') 0 0  no-repeat'}\">\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t</div>"
         }), 
         __metadata('design:paramtypes', [])
     ], Card);
@@ -30,10 +30,10 @@ var Card = (function () {
 }());
 exports.Card = Card;
 var CardModel = (function () {
-    function CardModel() {
+    function CardModel(cardCon) {
         this.frontContent = 'app/images/minions.jpg';
-        this.backContent = 'app/images/pyramid.jpg';
         this.isFlip = false;
+        this.cardContent = cardCon;
     }
     CardModel.prototype.flipCard = function () {
         this.isFlip = !this.isFlip;
@@ -41,4 +41,27 @@ var CardModel = (function () {
     return CardModel;
 }());
 exports.CardModel = CardModel;
+var CardContent = (function () {
+    function CardContent(cardCon, cardVal) {
+        this.cardContent = cardCon;
+        this.cardValue = cardVal;
+    }
+    return CardContent;
+}());
+exports.CardContent = CardContent;
+var CardData = (function () {
+    function CardData() {
+        this.cardContents = new Array();
+        this.fillCardData();
+    }
+    CardData.prototype.fillCardData = function () {
+        this.cardContents.push(new CardContent('app/images/1.jpg', 1));
+        this.cardContents.push(new CardContent('app/images/2.jpg', 1));
+        this.cardContents.push(new CardContent('app/images/3.jpg', 1));
+        this.cardContents.push(new CardContent('app/images/4.jpg', 1));
+        this.cardContents.push(new CardContent('app/images/5.jpg', 1));
+    };
+    return CardData;
+}());
+exports.CardData = CardData;
 //# sourceMappingURL=card.component.js.map
