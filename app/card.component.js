@@ -31,7 +31,7 @@ var Card = (function () {
 exports.Card = Card;
 var CardModel = (function () {
     function CardModel(cardCon) {
-        this.frontContent = 'app/images/minions.jpg';
+        this.frontContent = 'app/images/frontImage.jpg';
         this.isFlip = false;
         this.cardContent = cardCon;
     }
@@ -55,11 +55,20 @@ var CardData = (function () {
         this.fillCardData();
     }
     CardData.prototype.fillCardData = function () {
-        this.cardContents.push(new CardContent('app/images/1.jpg', 1));
-        this.cardContents.push(new CardContent('app/images/2.jpg', 1));
-        this.cardContents.push(new CardContent('app/images/3.jpg', 1));
-        this.cardContents.push(new CardContent('app/images/4.jpg', 1));
-        this.cardContents.push(new CardContent('app/images/5.jpg', 1));
+        this.cardContents.push(new CardContent('app/images/animals/bull.png', 1));
+        this.cardContents.push(new CardContent('app/images/animals/butterfly.jpg', 2));
+        this.cardContents.push(new CardContent('app/images/animals/cat.jpg', 3));
+        this.cardContents.push(new CardContent('app/images/animals/dog.jpg', 4));
+        this.cardContents.push(new CardContent('app/images/animals/earthworm.png', 5));
+        this.cardContents.push(new CardContent('app/images/animals/larva.jpg', 6));
+        this.cardContents.push(new CardContent('app/images/animals/lion.jpg', 7));
+        this.cardContents.push(new CardContent('app/images/animals/monkey.jpg', 8));
+        this.cardContents.push(new CardContent('app/images/animals/panda.jpg', 9));
+        this.cardContents.push(new CardContent('app/images/animals/peacock.jpg', 10));
+        this.cardContents.push(new CardContent('app/images/animals/penguin.png', 11));
+        this.cardContents.push(new CardContent('app/images/animals/snail.jpg', 12));
+        this.cardContents.push(new CardContent('app/images/animals/snake.png', 13));
+        this.cardContents.push(new CardContent('app/images/animals/twitter.png', 14));
     };
     return CardData;
 }());

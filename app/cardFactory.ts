@@ -25,7 +25,7 @@ export class CardFactory {
 
     getRandomCardContent() : CardContent {
         // get random number
-        var randomizer = new Randomizer(1,5);
+        var randomizer = new Randomizer(1,13);
         var randomContentIndex = randomizer.getRandomNumber();
 
         // get random Card Content
