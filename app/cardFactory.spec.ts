@@ -1,4 +1,5 @@
-import { CardFactory } from './cardFactory'
+import { CardFactory } from './cardFactory';
+import { CardContent } from './card.component';
 
 
 describe('1st tests', () => {
@@ -28,6 +29,17 @@ describe('1st tests', () => {
     expect(cardModels.length).toEqual(3);
     expect(cardModels[0].length).toEqual(3);
 
+  });
+
+  it('getRandomCardContent_PassNothing_ShoudlGetRandomCardContentBack', () => {
+      // arrange 
+      let cardFactory = new CardFactory();
+
+      // act
+      let randomCardContent = cardFactory.getRandomCardContent();
+
+      // assert
+      expect(randomCardContent).toEqual(jasmine.any(CardContent));
   });
 
 });

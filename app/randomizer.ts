@@ -10,6 +10,8 @@ export class Randomizer {
     }
 
     getRandomNumber() : number {
-        return 5;
+        var min = this.lowerBound;
+        var max = this.upperBound;
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 }
