@@ -17,25 +17,12 @@ describe('randomizer tests', () => {
         expect(randomizer.getRandomNumber(5, 5)).toBe(5);
     });
 
-    // it('getRandomIndex_PassOriginalArrayAndOccuriedIndexes_ReturnsSomeIndex', () => {
-    //     // arrange 
-    //     let randomizer = new Randomizer();
-
-    //     // act 
-    //     let originalArray: number[] = [4, 5, 8, 9];
-    //     let occupiedArrayIndexes: number[] = [];
-    //     let randomIndex = randomizer.getRandomIndex(originalArray, occupiedArrayIndexes);
-
-    //     // assert  
-    //     expect(randomIndex).toBeDefined();
-    // });
-
     it('getRandomIndex_PassOriginalArrayAndUsedIndexes_ReturnsNewRandomIndex', () => {
         // arrange 
         let randomizer = new Randomizer();
 
         // act 
-        let originalArray: number[] = [4, 5, 3];
+        let originalArray: number[] = [0, 1, 2];
         let occupiedArrayIndexes: number[] = [];
         occupiedArrayIndexes.push(1); // push index 1 of value 5
         let randomIndex = randomizer.getRandomIndex(originalArray, occupiedArrayIndexes);
@@ -43,5 +30,16 @@ describe('randomizer tests', () => {
         // assert  
         console.log(randomIndex);
         expect(randomIndex === 0 || randomIndex === 2).toBeTruthy();
+    });
+
+    it('getSetOfRandomIndex_PassLengthOfIndices_ShoudlGetRandomIndicesBack', () => {
+        // arrange 
+        let randomizer = new Randomizer();
+
+        // act
+        let randomIndices = randomizer.getSetOfRandomIndex(13);
+
+        // assert
+        expect(randomIndices.length).toBe(13);
     });
 });

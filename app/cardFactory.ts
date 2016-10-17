@@ -23,19 +23,6 @@ export class CardFactory {
         return this.cards;
     }
 
-    createLinearCards(numberOfCards: number): any[] {
-        let linearCards : CardContent[] = CardContent[numberOfCards-1];
-        var emptyCardCount = numberOfCards;
-
-        for(let linearCard of linearCards)
-        {
-            // fill the card with random content
-        }
-
-        return null;
-            
-    }
-
     getRandomCardContent(): CardContent {
         // get random number
         var randomizer = new Randomizer();
