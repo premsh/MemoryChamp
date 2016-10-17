@@ -31,15 +31,4 @@ describe('1st tests', () => {
 
   });
 
-  it('getRandomCardContent_PassNothing_ShoudlGetRandomCardContentBack', () => {
-      // arrange 
-      let cardFactory = new CardFactory();
-
-      // act
-      let randomCardContent = cardFactory.getRandomCardContent();
-
-      // assert
-      expect(randomCardContent).toEqual(jasmine.any(CardContent));
-  });
-
 });

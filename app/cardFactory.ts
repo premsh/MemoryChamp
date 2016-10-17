@@ -26,25 +26,39 @@ export class CardFactory {
 
     createLinearCards(numberOfCards: number): CardContent[] {
         let cardContents = new Array<CardContent>();
+        for (let i = 0; i < numberOfCards; i++) {
+            cardContents[i] = null;
+        }
 
         let randomizer = new Randomizer();
         let randomIndexedCards = randomizer.getSetOfRandomIndex(numberOfCards);
         var cardData = new CardData();
         cardData.fillCardData();
-        for (let i = 0; i < randomIndexedCards.length; i++) {
-            cardContents.push(cardData.cardContents[randomIndexedCards[i]]);
+
+        let originalArrayOfCards = new Array<number>();
+        for (let i = 0; i < numberOfCards; i++) {
+            originalArrayOfCards.push(i);
+        }
+
+        let usedIndices = new Array<number>();
+
+        for (let i = 0; i < numberOfCards; i++) {
+            if (cardContents[i] === null) {
+                cardContents[i] = cardData.cardContents[randomIndexedCards[i]];
+            }
+            else {
+                continue;
+            }
+            // push used index 
+            usedIndices.push(i);
+
+            // get new random index for pair
+            let newRandomPairIndex = randomizer.getRandomIndex(originalArrayOfCards, usedIndices);
+            if (cardContents[newRandomPairIndex] === null) {
+                cardContents[newRandomPairIndex] = cardData.cardContents[randomIndexedCards[i]];
+                usedIndices.push(newRandomPairIndex);
+            }
         }
         return cardContents;
-    }
-
-    getRandomCardContent(): CardContent {
-        // get random number
-        var randomizer = new Randomizer();
-        var randomContentIndex = randomizer.getRandomNumber(0, 13);
-
-        // get random Card Content
-        var cardData = new CardData();
-        cardData.fillCardData();
-        return cardData.cardContents[randomContentIndex];
     }
 }
