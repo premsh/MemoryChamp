@@ -14,13 +14,13 @@ import { Component, Input } from '@angular/core';
 	</div>`
 })
 export class Card {
-	@Input() cardmodel;
+	@Input() cardmodel : CardModel;
 
 	constructor() {
 	}
 
 	flipCard(): void {
-		this.cardmodel.isFlip = !this.cardmodel.isFlip;
+		this.cardmodel.flipCard();
 	}
 }
 
@@ -34,7 +34,9 @@ export class CardModel {
 	}
 
 	flipCard(): void {
-		this.isFlip = !this.isFlip;
+		if (!this.isFlip) {
+			this.isFlip = !this.isFlip;
+		}
 	}
 }
 

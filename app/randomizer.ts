@@ -16,7 +16,6 @@ export class Randomizer {
         for (let i = 0; i < originalArray.length; i++) {
             var randomIndex = this.getRandomIndex(originalArray, usedArrayIndices);
             usedArrayIndices.push(randomIndex);
-            console.log('random index is', randomIndex);
         }
         return usedArrayIndices;
     }

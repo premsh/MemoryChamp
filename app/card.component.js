@@ -13,11 +13,11 @@ var Card = (function () {
     function Card() {
     }
     Card.prototype.flipCard = function () {
-        this.cardmodel.isFlip = !this.cardmodel.isFlip;
+        this.cardmodel.flipCard();
     };
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', Object)
+        __metadata('design:type', CardModel)
     ], Card.prototype, "cardmodel", void 0);
     Card = __decorate([
         core_1.Component({
@@ -36,7 +36,9 @@ var CardModel = (function () {
         this.cardContent = cardCon;
     }
     CardModel.prototype.flipCard = function () {
-        this.isFlip = !this.isFlip;
+        if (!this.isFlip) {
+            this.isFlip = !this.isFlip;
+        }
     };
     return CardModel;
 }());

@@ -28,7 +28,6 @@ describe('randomizer tests', () => {
         let randomIndex = randomizer.getRandomIndex(originalArray, occupiedArrayIndexes);
 
         // assert  
-        console.log(randomIndex);
         expect(randomIndex === 0 || randomIndex === 2).toBeTruthy();
     });
 
