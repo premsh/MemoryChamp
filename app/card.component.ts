@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
 	selector: 'card',
 	template: `
@@ -15,12 +15,14 @@ import { Component, Input } from '@angular/core';
 })
 export class Card {
 	@Input() cardmodel : CardModel;
+	@Output() cardClicked = new EventEmitter<CardModel>();
 
 	constructor() {
 	}
 
 	flipCard(): void {
 		this.cardmodel.flipCard();
+		this.cardClicked.emit(this.cardmodel);
 	}
 }
 

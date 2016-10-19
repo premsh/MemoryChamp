@@ -11,14 +11,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var Card = (function () {
     function Card() {
+        this.cardClicked = new core_1.EventEmitter();
     }
     Card.prototype.flipCard = function () {
         this.cardmodel.flipCard();
+        this.cardClicked.emit(this.cardmodel);
     };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', CardModel)
     ], Card.prototype, "cardmodel", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], Card.prototype, "cardClicked", void 0);
     Card = __decorate([
         core_1.Component({
             selector: 'card',
