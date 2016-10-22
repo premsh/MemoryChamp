@@ -1,5 +1,5 @@
 import { CardFactory } from './cardFactory';
-import { CardContent } from './card.component';
+import { CardContent } from './card/card.component';
 
 
 describe('1st tests', () => {

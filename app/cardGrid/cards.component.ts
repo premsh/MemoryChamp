@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CardModel } from './card.component';
+import { CardModel } from '../card/card.component';
 @Component({
 	selector: 'cards',
 	template: `			

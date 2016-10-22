@@ -1,4 +1,4 @@
-import { CardModel, CardContent, CardData } from './card.component';
+import { CardModel, CardContent, CardData } from './card/card.component';
 import { Randomizer } from './randomizer';
 
 export class CardFactory {

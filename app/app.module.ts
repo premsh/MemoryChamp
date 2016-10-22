@@ -1,8 +1,8 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrainFart }   from './app.component';
-import { Cards } from './cards.component';
-import { Card } from './card.component';
+import { Cards } from './cardGrid/cards.component';
+import { Card } from './card/card.component';
 
 @NgModule({
   imports:      [ BrowserModule ],
