@@ -1,11 +1,12 @@
 
-import { CardModel, CardContent } from './card.component';
+import { Card } from './card.component';
+import { CardModel } from './cardModel.component';
 
 describe('cardModel specs', () => {
 
     it('flipCard_WhenflipCardIsCalled_CardShouldFlip', () => {
         // arrange 
-        let cardModel = new CardModel(new CardContent('some string', 4));
+        let cardModel = new CardModel('some string');
 
         // act
         cardModel.flipCard();
@@ -16,7 +17,7 @@ describe('cardModel specs', () => {
 
         it('flipCard_WhenflipCardIsCalledOnFlippedCard_NothingShoudlHappen', () => {
         // arrange 
-        let cardModel = new CardModel(new CardContent('some string', 4));
+        let cardModel = new CardModel('some string');
         cardModel.isFlip = true;
 
         // act

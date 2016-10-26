@@ -1,13 +1,14 @@
 import { CardFactory } from './cardFactory';
-import { CardContent } from './card/card.component';
+import { Randomizer } from './randomizer';
 
 
 describe('1st tests', () => {
   it('true is true', () => expect(true).toBe(true));
 
+  var randomizer = new Randomizer();
   it('createCards_PassGridSize_ShouldGetMultidimentionalArray', () => {
     // arrange
-    var cardFactory = new CardFactory();
+    var cardFactory = new CardFactory(randomizer);
 
     // act
     var cardModels = cardFactory.createCards(3, 3);
@@ -20,7 +21,7 @@ describe('1st tests', () => {
 
   it('createCards_PassNoGridSize_ShouldGetDefaultArray', () => {
     // arrange
-    var cardFactory = new CardFactory();
+    var cardFactory = new CardFactory(randomizer);
 
     // act
     var cardModels = cardFactory.createCards();
@@ -33,10 +34,10 @@ describe('1st tests', () => {
 
   it('createCardDeck_PassNoOfCard_ShouldReturnCardDeck', () => {
     // arrange
-    var cardFactory = new CardFactory();
+    var cardFactory = new CardFactory(randomizer);
 
     // act
-    var cardContentDeck = cardFactory.createCardDeck(12);
+    var cardContentDeck = cardFactory.createCardModels(12);
 
     // assert
     expect(cardContentDeck.length).toEqual(12);
@@ -45,7 +46,7 @@ describe('1st tests', () => {
 
   it('getRandomArrayNumbers_PassArrayWithNumberOfRandomItemRequired_ShouldReturnRandomizedDeckOfCardOfGivenSize', () => {
     // arrange
-    var cardFactory = new CardFactory();
+    var cardFactory = new CardFactory(randomizer);
 
     let arrayOfNumbers = [0, 1, 2];
 

@@ -13,6 +13,8 @@ var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
 var cards_component_1 = require('./cardGrid/cards.component');
 var card_component_1 = require('./card/card.component');
+var cardFactory_1 = require('./cardFactory');
+var randomizer_1 = require('./randomizer');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -20,6 +22,7 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule],
             declarations: [app_component_1.BrainFart, cards_component_1.Cards, card_component_1.Card],
+            providers: [cardFactory_1.CardFactory, randomizer_1.Randomizer],
             bootstrap: [app_component_1.BrainFart]
         }), 
         __metadata('design:paramtypes', [])

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CardModel } from '../card/card.component';
+import { CardModel } from '../card/cardModel.component';
 @Component({
 	selector: 'cards',
 	template: `			
@@ -30,14 +30,13 @@ export class Cards {
 
 	cardClicked(cardModel: CardModel) {
 		let gameMessage = new GameMessage();
-		console.log('got clicked!', cardModel.cardContent.cardValue);
 		if (this.firstActiveCardModel === undefined) {
 			this.firstActiveCardModel = cardModel;
 		}
 		else {
 			if (this.secondActiveCardModel === undefined) {
 				this.secondActiveCardModel = cardModel;
-				if (this.firstActiveCardModel.cardContent.cardValue === this.secondActiveCardModel.cardContent.cardValue) {
+				if (this.firstActiveCardModel.cardName === this.secondActiveCardModel.cardName) {
 					this.firstActiveCardModel = undefined;
 					this.secondActiveCardModel = undefined;
 					this.message = gameMessage.goodJobMessage;

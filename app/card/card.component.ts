@@ -1,14 +1,16 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CardModel } from './cardModel.component';
+
 @Component({
 	selector: 'card',
 	template: `
   	<div class="flip-container" [class.flip] = "cardmodel.isFlip"  (click)="flipCard();">
 		<div class="flipper">
 			<div class="front" [ngStyle]="{'background': 'url(' + cardmodel.frontContent + ') 0 0  no-repeat'}">
-				
+				Card id {{ cardmodel.cardId }} card value {{ cardmodel.cardValue }}
 			</div>
-			<div class="back" [ngStyle]="{'background': 'url(' + cardmodel.cardContent.cardContent + ') 0 0  no-repeat'}">
-				
+			<div class="back" [ngStyle]="{'background': 'url(' + imagePrefex  + cardmodel.cardName + imageSuffix + ') 0 0  no-repeat'}">
+				{{ cardmodel.cardId }}
 			</div>
 		</div>
 	</div>`
@@ -16,6 +18,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class Card {
 	@Input() cardmodel : CardModel;
 	@Output() cardClicked = new EventEmitter<CardModel>();
+
+	imagePrefex = 'app/images/animals/';
+	imageSuffix = '.jpg';
 
 	constructor() {
 	}
@@ -26,55 +31,19 @@ export class Card {
 	}
 }
 
-export class CardModel {
-	frontContent: string = 'app/images/frontImage.jpg';
-	cardContent: CardContent;
-	isFlip: boolean = false;
-
-	constructor(cardCon: CardContent) {
-		this.cardContent = cardCon;
-	}
-
-	flipCard(): void {
-		if (!this.isFlip) {
-			this.isFlip = !this.isFlip;
-		}
-	}
-}
-
-export class CardContent {
-	cardContent: string;
-	cardValue: number;
-
-	constructor(cardCon: string, cardVal: number) {
-		this.cardContent = cardCon;
-		this.cardValue = cardVal;
-	}
-}
-
 export class CardData {
-	cardContents: CardContent[];
+	cardModels: CardModel[];
 
 	constructor() {
-		this.cardContents = new Array<CardContent>();
-		this.fillCardData();
+		this.cardModels = new Array<CardModel>();
 	}
 
-	fillCardData(): void {
-		this.cardContents.push(new CardContent('app/images/animals/bull.png', 1));
-		this.cardContents.push(new CardContent('app/images/animals/butterfly.jpg', 2));
-		this.cardContents.push(new CardContent('app/images/animals/cat.jpg', 3));
-		this.cardContents.push(new CardContent('app/images/animals/dog.jpg', 4));
-		this.cardContents.push(new CardContent('app/images/animals/earthworm.png', 5));
-		this.cardContents.push(new CardContent('app/images/animals/larva.jpg', 6));
-		this.cardContents.push(new CardContent('app/images/animals/lion.jpg', 7));
-		this.cardContents.push(new CardContent('app/images/animals/monkey.jpg', 8));
-		this.cardContents.push(new CardContent('app/images/animals/panda.jpg', 9));
-		this.cardContents.push(new CardContent('app/images/animals/peacock.jpg', 10));
-		this.cardContents.push(new CardContent('app/images/animals/penguin.png', 11));
-		this.cardContents.push(new CardContent('app/images/animals/snail.jpg', 12));
-		this.cardContents.push(new CardContent('app/images/animals/snake.png', 13));
-		this.cardContents.push(new CardContent('app/images/animals/twitter.png', 14));
+	cardImages : string[] = ['bull', 'butterfly', 'cat', 'dog', 'earthworm', 'larva', 'lion', 'monkey', 'panda', 'peacock', 'penguin', 'snail', 'snake', 'twitter'];
+
+	getCardByIndex(index : number) : CardModel {
+		let cardImage = this.cardImages[index];
+		let cardModel = new CardModel(cardImage);
+		return cardModel;
 	}
 }
 
