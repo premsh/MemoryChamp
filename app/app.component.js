@@ -9,18 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var cardFactory_1 = require('./shared/cardFactory');
+var cardFactory_1 = require('./shared/cardFactory/cardFactory');
 var BrainFart = (function () {
     function BrainFart(cardFactory) {
         this.cardFactory = cardFactory;
+        this.cardModels = [];
     }
     BrainFart.prototype.ngOnInit = function () {
         this.cardModels = this.cardFactory.createCards(3, 4);
     };
     BrainFart = __decorate([
         core_1.Component({
-            selector: 'brain-fart',
-            template: '<h1>My First Angular App</h1> <cards [cardmodels] = "cardModels"></cards>'
+            selector: 'memory-game',
+            template: '<h1>My First Angular App</h1> <cards [cardmodels] = "cardModels" *ngIf="cardModels.length > 1"></cards>'
         }), 
         __metadata('design:paramtypes', [cardFactory_1.CardFactory])
     ], BrainFart);

@@ -10,19 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var cards_component_1 = require('./cardGrid/cards.component');
 var card_component_1 = require('./card/card.component');
-var cardFactory_1 = require('./shared/cardFactory');
-var randomizer_1 = require('./shared/randomizer');
+var cardFactory_1 = require('./shared/cardFactory/cardFactory');
+var randomizer_1 = require('./shared/randomizer/randomizer');
+var dataService_1 = require('./shared/dataService/dataService');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
             declarations: [app_component_1.BrainFart, cards_component_1.Cards, card_component_1.Card],
-            providers: [cardFactory_1.CardFactory, randomizer_1.Randomizer],
+            providers: [cardFactory_1.CardFactory, randomizer_1.Randomizer, http_1.HttpModule, dataService_1.DataService],
             bootstrap: [app_component_1.BrainFart]
         }), 
         __metadata('design:paramtypes', [])
