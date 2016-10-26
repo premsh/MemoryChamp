@@ -14,10 +14,12 @@ export class CardFactory {
 
     // cardImages: string[] = ['bull', 'butterfly', 'cat', 'dog', 'earthworm', 'larva', 'lion', 'monkey', 'panda', 'peacock', 'penguin', 'snail', 'snake', 'twitter'];
 
-    createCards(numberOfRows: number = 3, numberOfColumns: number = 3) : any[] {
+    createCards(numberOfRows: number = 3, numberOfColumns: number = 3): any[] {
 
-        this.dataService.getImageNamesThroughMockData().then((data) => {
-            this.cardImages = data;
+        this.dataService.getImageNamesThroughJSONPromise().then((data) => {
+            console.log('promise data from consumer', data.imageNames);
+
+            this.cardImages = data.imageNames;
 
             let originalNumberOfColumns: number = numberOfColumns;
             let cardCounter = 0;
@@ -32,6 +34,11 @@ export class CardFactory {
                 numberOfColumns = originalNumberOfColumns;
             }
             return this.cards;
+        }, () => {
+            console.log('something went wrong!');
+        });
+
+        this.dataService.getImageNamesThroughMockData().then((data) => {
 
         }, (error) => {
             console.log('something went wrong while getting const values', error);
