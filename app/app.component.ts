@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CardModel } from './card/cardModel.component';
-import { CardFactory } from './cardFactory';
+import { CardFactory } from './shared/cardFactory';
 
 @Component({
     selector: 'brain-fart',

@@ -13,8 +13,8 @@ var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
 var cards_component_1 = require('./cardGrid/cards.component');
 var card_component_1 = require('./card/card.component');
-var cardFactory_1 = require('./cardFactory');
-var randomizer_1 = require('./randomizer');
+var cardFactory_1 = require('./shared/cardFactory');
+var randomizer_1 = require('./shared/randomizer');
 var AppModule = (function () {
     function AppModule() {
     }

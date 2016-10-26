@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrainFart }   from './app.component';
 import { Cards } from './cardGrid/cards.component';
 import { Card } from './card/card.component';
-import { CardFactory } from './cardFactory';
-import { Randomizer } from './randomizer';
+import { CardFactory } from './shared/cardFactory';
+import { Randomizer } from './shared/randomizer';
 
 @NgModule({
   imports:      [ BrowserModule ],

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CardData } from './card/card.component';
-import { CardModel } from './card/cardModel.component';
+import { CardData } from '../card/card.component';
+import { CardModel } from '../card/cardModel.component';
 import { Randomizer } from './randomizer';
 
 @Injectable()
