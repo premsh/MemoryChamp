@@ -16,7 +16,8 @@ var BrainFart = (function () {
         this.cardModels = [];
     }
     BrainFart.prototype.ngOnInit = function () {
-        this.cardModels = this.cardFactory.createCards(3, 4);
+        // this.cardModels = this.cardFactory.createCards(3, 4);
+        this.cardModels = this.cardFactory.createCardsUsingObservable(3, 4);
     };
     BrainFart = __decorate([
         core_1.Component({

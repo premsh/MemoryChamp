@@ -3,6 +3,7 @@ import { CardModel } from '../../card/cardModel.component';
 import { Randomizer } from '../randomizer/randomizer';
 import { DataService } from '../dataService/dataService';
 
+
 @Injectable()
 export class CardFactory {
     cards: any[];
@@ -16,34 +17,65 @@ export class CardFactory {
 
     createCards(numberOfRows: number = 3, numberOfColumns: number = 3): any[] {
 
-        this.dataService.getImageNamesThroughJSONPromise().then((data) => {
-            console.log('promise data from consumer', data.imageNames);
+        // this.dataService.getImageNamesThroughJSONPromise().then((data) => {
+        //     console.log('promise data from consumer', data.imageNames);
 
-            this.cardImages = data.imageNames;
+        //     this.cardImages = data.imageNames;
 
-            let originalNumberOfColumns: number = numberOfColumns;
-            let cardCounter = 0;
-            let cardModels = this.createCardModels(numberOfRows * numberOfColumns);
-            for (var i = 0; i < numberOfRows; i++) {
-                this.cards[i] = [];
-                while (numberOfColumns > 0) {
-                    let card = cardModels[cardCounter++];
-                    this.cards[i].push(card);
-                    numberOfColumns--;
-                }
-                numberOfColumns = originalNumberOfColumns;
-            }
-            return this.cards;
-        }, () => {
-            console.log('something went wrong!');
-        });
+        //     let originalNumberOfColumns: number = numberOfColumns;
+        //     let cardCounter = 0;
+        //     let cardModels = this.createCardModels(numberOfRows * numberOfColumns);
+        //     for (var i = 0; i < numberOfRows; i++) {
+        //         this.cards[i] = [];
+        //         while (numberOfColumns > 0) {
+        //             let card = cardModels[cardCounter++];
+        //             this.cards[i].push(card);
+        //             numberOfColumns--;
+        //         }
+        //         numberOfColumns = originalNumberOfColumns;
+        //     }
+        //     return this.cards;
+        // }, () => {
+        //     console.log('something went wrong!');
+        // });
 
-        this.dataService.getImageNamesThroughMockData().then((data) => {
+        // this.dataService.getImageNamesThroughMockData().then((data) => {
 
-        }, (error) => {
-            console.log('something went wrong while getting const values', error);
-        });
+        // }, (error) => {
+        //     console.log('something went wrong while getting const values', error);
+        // });
         return this.cards;
+    }
+
+    createCardsUsingObservable(numberOfRows: number = 3, numberOfColumns: number = 3): any[] {
+        this.dataService.getImageNamesThroughJSONObservable()
+            .subscribe((data : any) => {
+                // do work
+
+                this.cardImages = data.imageNames;
+
+                let originalNumberOfColumns: number = numberOfColumns;
+                let cardCounter = 0;
+                let cardModels = this.createCardModels(numberOfRows * numberOfColumns);
+                for (var i = 0; i < numberOfRows; i++) {
+                    this.cards[i] = [];
+                    while (numberOfColumns > 0) {
+                        let card = cardModels[cardCounter++];
+                        this.cards[i].push(card);
+                        numberOfColumns--;
+                    }
+                    numberOfColumns = originalNumberOfColumns;
+                }
+                return this.cards;
+            }, 
+            (error : any) => {
+                console.log(error);
+            }, 
+            () => {
+                console.log('im cleaning up anything!');    
+            });
+
+            return this.cards;
     }
 
     createCardModels(numberOfCards): Array<CardModel> {

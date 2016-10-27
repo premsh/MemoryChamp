@@ -13,7 +13,8 @@ export class BrainFart implements OnInit {
     }
 
     ngOnInit() {        
-        this.cardModels = this.cardFactory.createCards(3, 4);
+        // this.cardModels = this.cardFactory.createCards(3, 4);
+        this.cardModels = this.cardFactory.createCardsUsingObservable(3, 4);       
     }
 }
 

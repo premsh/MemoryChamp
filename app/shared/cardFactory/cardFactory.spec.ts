@@ -1,13 +1,15 @@
 import { CardFactory } from './cardFactory';
 import { Randomizer } from '../randomizer/randomizer';
 import { DataService } from '../dataService/dataService';
+import { Http} from '@angular/http';
 
 
 describe('1st tests', () => {
   it('true is true', () => expect(true).toBe(true));
 
   var randomizer = new Randomizer();
-  var dataService = new DataService();
+  let mockHttp : any;
+  var dataService = new DataService(mockHttp);
   it('createCards_PassGridSize_ShouldGetMultidimentionalArray', () => {
     // arrange
     var cardFactory = new CardFactory(randomizer, dataService);

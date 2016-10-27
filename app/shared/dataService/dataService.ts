@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 import { IMAGENAMES } from './mockImageName';
 
@@ -24,14 +25,20 @@ export class DataService {
             });
     }
 
+    getImageNamesThroughJSONObservable() : Observable<any>  {
+        return this._http.get(this.jsonUrl)
+            .map(this.processData)
+            .catch(this.handleError);
+    }
+
     private processData(response: Response) {
         let result = response.json();
-        return result.data || {};
+        return result || {};
     }
 
     private handleError(error: Response | any) {
         console.log(error);
-        return Observable.throw(error);
+        return Observable.throw(error.json().error || 'server error');
     }
 
     getImageNamesThroughMockData(): Promise<string[]> {
